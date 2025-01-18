@@ -6,4 +6,4 @@ Feature:
   Scenario: When adding a new score, it should appear in the leaderboard if it's high enough.
     Given an existing High Score list
     When adding the Score 1200
-    Then the list should be updated so that the Score is placed in the correct position (descending)
+    Then the list should be updated in descending order
