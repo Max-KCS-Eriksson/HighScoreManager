@@ -16,7 +16,17 @@ public class HighScoreManager {
     }
 
     public void addScore(int score) {
-        this.scores.add(score);
+        boolean hasShifted = false;
+        int scoresSize = scores.size();
+        for (int i = 0; i < scoresSize; i++) {
+            if (score > scores.get(i)) {
+                scores.add(i, score);
+                hasShifted = true;
+                break;
+            }
+        }
+
+        if (!hasShifted) this.scores.add(score);
     }
 
     public List<Integer> getScores() {
