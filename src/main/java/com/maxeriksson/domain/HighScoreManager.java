@@ -12,7 +12,7 @@ public class HighScoreManager {
     }
 
     public HighScoreManager(List<Integer> scores) {
-        this.scores = scores;
+        this.scores = new ArrayList<>(scores);
     }
 
     public void addScore(int score) {}
