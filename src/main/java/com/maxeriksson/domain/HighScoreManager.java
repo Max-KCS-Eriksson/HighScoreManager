@@ -15,7 +15,9 @@ public class HighScoreManager {
         this.scores = new ArrayList<>(scores);
     }
 
-    public void addScore(int score) {}
+    public void addScore(int score) {
+        this.scores.add(score);
+    }
 
     public List<Integer> getScores() {
         return this.scores;
