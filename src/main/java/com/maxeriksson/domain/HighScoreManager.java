@@ -1,6 +1,7 @@
 package com.maxeriksson.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HighScoreManager {
@@ -13,6 +14,7 @@ public class HighScoreManager {
 
     public HighScoreManager(List<Integer> scores) {
         this.scores = new ArrayList<>(scores);
+        this.scores.sort(Collections.reverseOrder());
     }
 
     public List<Integer> getScoresTop(int topNum) {
