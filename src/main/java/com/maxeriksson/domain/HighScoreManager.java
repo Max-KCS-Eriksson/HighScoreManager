@@ -36,7 +36,7 @@ public class HighScoreManager {
     }
 
     public List<Integer> getScoresTop(int topNum) {
-        return this.scores.subList(0, topNum);
+        return getScores().subList(0, topNum);
     }
 
     public List<Integer> getScores() {
