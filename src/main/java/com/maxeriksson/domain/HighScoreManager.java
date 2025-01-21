@@ -22,17 +22,37 @@ public class HighScoreManager {
     }
 
     private boolean insertScore(int score) {
+        int index = findInsertPosition(score);
+
         boolean hasShifted = false;
-        int scoresSize = scores.size();
-        for (int i = 0; i < scoresSize; i++) {
-            if (score > scores.get(i)) {
-                scores.add(i, score);
-                hasShifted = true;
-                break;
-            }
+        if (score > scores.get(index)) {
+            scores.add(index, score);
+            hasShifted = true;
         }
 
         return hasShifted;
+    }
+
+    private int findInsertPosition(int score) {
+        int start = 0;
+        int end = scores.size() - 1;
+        int middle = -1;
+
+        while (start <= end) {
+            middle = (start + end) / 2;
+
+            int middleValue = scores.get(middle);
+            if (middleValue == score) {
+                return middle;
+            }
+
+            if (scores.get(middle) > score) {
+                start = middle + 1;
+            } else {
+                end = middle - 1;
+            }
+        }
+        return middle;
     }
 
     public List<Integer> getScoresTop(int topNum) {
