@@ -56,7 +56,11 @@ public class HighScoreManager {
     }
 
     public List<Integer> getScoresTop(int topNum) {
-        return getScores().subList(0, topNum);
+        List<Integer> scores = getScores();
+        if (scores.size() < topNum) {
+            return scores;
+        }
+        return scores.subList(0, topNum);
     }
 
     public List<Integer> getScores() {
