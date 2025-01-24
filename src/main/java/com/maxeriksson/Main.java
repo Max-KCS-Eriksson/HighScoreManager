@@ -8,12 +8,13 @@ public class Main {
 
     private static Scanner input;
     private static HighScoreManager highScoreManager;
+    private static boolean isRunning;
 
     public static void main(String[] args) {
         input = new Scanner(System.in);
         highScoreManager = new HighScoreManager();
 
-        boolean isRunning = true;
+        isRunning = true;
         while (isRunning) {
             String[] menuChoices = {"Add new Score", "List top Scores", "Exit"};
             printHumanReadableMenu(menuChoices);
@@ -21,19 +22,7 @@ public class Main {
             System.out.print("Choice > ");
             int choice = input.nextInt();
             input.nextLine();
-            switch (choice) {
-                case 1 -> {
-                    System.out.print("Score > ");
-                    highScoreManager.addScore(input.nextInt());
-                    input.nextLine();
-                }
-                case 2 -> {
-                    int numOfTopScores = 3;
-                    System.out.println(highScoreManager.getScoresTop(numOfTopScores));
-                }
-                case 3 -> isRunning = false;
-                default -> System.out.println("Invalid choice - try again");
-            }
+            isRunning = handleMenuChoice(choice);
         }
     }
 
@@ -41,5 +30,22 @@ public class Main {
         for (int i = 0; i < menuChoices.length; i++) {
             System.out.println((i + 1) + ") " + menuChoices[i]);
         }
+    }
+
+    private static boolean handleMenuChoice(int choice) {
+        switch (choice) {
+            case 1 -> {
+                System.out.print("Score > ");
+                highScoreManager.addScore(input.nextInt());
+                input.nextLine();
+            }
+            case 2 -> {
+                int numOfTopScores = 3;
+                System.out.println(highScoreManager.getScoresTop(numOfTopScores));
+            }
+            case 3 -> isRunning = false;
+            default -> System.out.println("Invalid choice - try again");
+        }
+        return isRunning;
     }
 }
