@@ -18,7 +18,7 @@ public class HighScoreManager {
     }
 
     public void addScore(int score) {
-        if (!insertScore(score)) this.scores.add(score);
+        if (this.scores.size() == 0 || !insertScore(score)) this.scores.add(score);
     }
 
     private boolean insertScore(int score) {
