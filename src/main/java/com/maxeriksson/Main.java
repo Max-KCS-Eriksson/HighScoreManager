@@ -16,9 +16,7 @@ public class Main {
         boolean isRunning = true;
         while (isRunning) {
             String[] menuChoices = {"Add new Score", "List top Scores", "Exit"};
-            for (int i = 0; i < menuChoices.length; i++) {
-                System.out.println((i + 1) + ") " + menuChoices[i]);
-            }
+            printHumanReadableMenu(menuChoices);
 
             System.out.print("Choice > ");
             int choice = input.nextInt();
@@ -36,6 +34,12 @@ public class Main {
                 case 3 -> isRunning = false;
                 default -> System.out.println("Invalid choice - try again");
             }
+        }
+    }
+
+    private static void printHumanReadableMenu(String[] menuChoices) {
+        for (int i = 0; i < menuChoices.length; i++) {
+            System.out.println((i + 1) + ") " + menuChoices[i]);
         }
     }
 }
