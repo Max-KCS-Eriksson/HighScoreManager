@@ -52,7 +52,7 @@ public class HighScoreManager {
                 end = middle - 1;
             }
         }
-        return middle;
+        return start;
     }
 
     public List<Integer> getScoresTop(int topNum) {
