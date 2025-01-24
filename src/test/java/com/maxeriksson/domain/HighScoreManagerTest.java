@@ -21,9 +21,12 @@ public class HighScoreManagerTest {
 
     @Test
     void instertScoreAtPositionInDescendingOrder() {
-        highScoreManager.addScore(900);
-        Integer[] expected = {1000, 900, 800, 600, 400, 200};
+        Integer[] existingScores = {60, 50, 40};
+        highScoreManager = new HighScoreManager(Arrays.asList(existingScores));
 
+        highScoreManager.addScore(55);
+
+        Integer[] expected = {60, 55, 50, 40};
         assertEquals(Arrays.asList(expected), highScoreManager.getScores());
     }
 
