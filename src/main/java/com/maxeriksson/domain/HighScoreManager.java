@@ -25,7 +25,7 @@ public class HighScoreManager {
         int index = findInsertPosition(score);
 
         boolean hasShifted = false;
-        if (score > scores.get(index)) {
+        if (score >= scores.get(index)) {
             scores.add(index, score);
             hasShifted = true;
         }
