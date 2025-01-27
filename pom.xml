@@ -4,7 +4,7 @@
 
   <groupId>com.maxeriksson</groupId>
   <artifactId>HighScoreManager</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>HighScoreManager</name>
@@ -86,7 +86,7 @@
               <!-- Run following to compile: -->
               <!-- $ mvn clean compile assembly:single -->
               <!-- Run JAR with: -->
-              <!-- $ java -jar target/HighScoreManager-SNAPSHOT-jar-with-dependencies.jar -->
+              <!-- $ java -jar ./target/*.jar -->
               <mainClass>com.maxeriksson.Main</mainClass>
             </manifest>
           </archive>
